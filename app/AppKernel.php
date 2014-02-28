@@ -20,6 +20,7 @@ class AppKernel extends Kernel
             new Acme\Bundle\MysqlBundle\AcmeMysqlBundle(),
             new JMS\DiExtraBundle\JMSDiExtraBundle($this),
             new JMS\AopBundle\JMSAopBundle(),
+            new RaulFraile\Bundle\LadybugBundle\RaulFraileLadybugBundle(),
         );
 
         if (in_array($this->getEnvironment(), array('dev', 'test'))) {
