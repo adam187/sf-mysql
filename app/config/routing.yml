@@ -1,0 +1,5 @@
+acme_mysql:
+    resource: "@AcmeMysqlBundle/Controller/"
+    type:     annotation
+    prefix:   /
+
