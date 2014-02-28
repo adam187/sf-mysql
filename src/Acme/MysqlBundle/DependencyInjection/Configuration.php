@@ -1,6 +1,6 @@
 <?php
 
-namespace Acme\Bundle\MysqlBundle\DependencyInjection;
+namespace Acme\MysqlBundle\DependencyInjection;
 
 use Symfony\Component\Config\Definition\Builder\TreeBuilder;
 use Symfony\Component\Config\Definition\ConfigurationInterface;

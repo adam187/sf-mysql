@@ -19,7 +19,7 @@ doctrine:
             entity:
                 type: annotation
                 prefix: Acme\MysqlBundle\Entity
-                dir: %kernel.root_dir%/../src/Acme/Bundle/MysqlBundle/Entity
+                dir: %kernel.root_dir%/../src/Acme/MysqlBundle/Entity
                 alias: Entity
                 is_bundle: false
             gedmo_translatable:

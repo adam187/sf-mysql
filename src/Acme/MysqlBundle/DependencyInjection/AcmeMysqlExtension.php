@@ -1,6 +1,6 @@
 <?php
 
-namespace Acme\Bundle\MysqlBundle\DependencyInjection;
+namespace Acme\MysqlBundle\DependencyInjection;
 
 use Symfony\Component\DependencyInjection\ContainerBuilder;
 use Symfony\Component\Config\FileLocator;

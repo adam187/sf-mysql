@@ -1,6 +1,6 @@
 <?php
 
-namespace Acme\Bundle\MysqlBundle;
+namespace Acme\MysqlBundle;
 
 use Symfony\Component\HttpKernel\Bundle\Bundle;
 
