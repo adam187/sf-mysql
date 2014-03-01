@@ -3,7 +3,7 @@
         "This file locks the dependencies of your project to a known state",
         "Read more about it at http://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file"
     ],
-    "hash": "fc87944e91fc334c74d48b0a0f941a9e",
+    "hash": "8c4d49b71b8ad13225b56c1efec5ae59",
     "packages": [
         {
             "name": "doctrine/annotations",
@@ -295,6 +295,62 @@
             "time": "2014-02-03 23:31:47"
         },
         {
+            "name": "doctrine/data-fixtures",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/doctrine/data-fixtures.git",
+                "reference": "83a910f62b01715f3ed7317f5a4996417a698177"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/doctrine/data-fixtures/zipball/83a910f62b01715f3ed7317f5a4996417a698177",
+                "reference": "83a910f62b01715f3ed7317f5a4996417a698177",
+                "shasum": ""
+            },
+            "require": {
+                "doctrine/common": "~2.2",
+                "php": ">=5.3.2"
+            },
+            "require-dev": {
+                "doctrine/orm": "~2.2"
+            },
+            "suggest": {
+                "doctrine/mongodb-odm": "For loading MongoDB ODM fixtures",
+                "doctrine/orm": "For loading ORM fixtures",
+                "doctrine/phpcr-odm": "For loading PHPCR ODM fixtures"
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "1.0.x-dev"
+                }
+            },
+            "autoload": {
+                "psr-0": {
+                    "Doctrine\\Common\\DataFixtures": "lib/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Jonathan Wage",
+                    "email": "jonwage@gmail.com",
+                    "homepage": "http://www.jwage.com/",
+                    "role": "Creator"
+                }
+            ],
+            "description": "Data Fixtures for all Doctrine Object Managers",
+            "homepage": "http://www.doctrine-project.org",
+            "keywords": [
+                "database"
+            ],
+            "time": "2014-02-03 22:07:07"
+        },
+        {
             "name": "doctrine/dbal",
             "version": "dev-master",
             "source": {
@@ -529,6 +585,66 @@
                 "caching"
             ],
             "time": "2014-02-28 19:06:35"
+        },
+        {
+            "name": "doctrine/doctrine-fixtures-bundle",
+            "version": "dev-master",
+            "target-dir": "Doctrine/Bundle/FixturesBundle",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/doctrine/DoctrineFixturesBundle.git",
+                "reference": "351bcc4de9ff58bac8d72bb3ef0b7481377bb25e"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/doctrine/DoctrineFixturesBundle/zipball/351bcc4de9ff58bac8d72bb3ef0b7481377bb25e",
+                "reference": "351bcc4de9ff58bac8d72bb3ef0b7481377bb25e",
+                "shasum": ""
+            },
+            "require": {
+                "doctrine/data-fixtures": "~1.0",
+                "doctrine/doctrine-bundle": "~1.0",
+                "php": ">=5.3.2",
+                "symfony/doctrine-bridge": "~2.1"
+            },
+            "type": "symfony-bundle",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "2.2.x-dev"
+                }
+            },
+            "autoload": {
+                "psr-0": {
+                    "Doctrine\\Bundle\\FixturesBundle": ""
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Fabien Potencier2",
+                    "email": "fabien@symfony.com",
+                    "homepage": "http://fabien.potencier.org",
+                    "role": "Lead Developer"
+                },
+                {
+                    "name": "Symfony Community",
+                    "homepage": "http://symfony.com/contributors"
+                },
+                {
+                    "name": "Doctrine Project",
+                    "homepage": "http://www.doctrine-project.org"
+                }
+            ],
+            "description": "Symfony DoctrineFixturesBundle",
+            "homepage": "http://www.doctrine-project.org",
+            "keywords": [
+                "Fixture",
+                "persistence"
+            ],
+            "time": "2014-02-22 15:01:12"
         },
         {
             "name": "doctrine/inflector",
@@ -788,6 +904,52 @@
             "time": "2013-11-06 19:40:03"
         },
         {
+            "name": "fzaninotto/faker",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/fzaninotto/Faker.git",
+                "reference": "ec11415852c49bacb31853c221aacdae4761b323"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/fzaninotto/Faker/zipball/ec11415852c49bacb31853c221aacdae4761b323",
+                "reference": "ec11415852c49bacb31853c221aacdae4761b323",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.3.3"
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "1.4.x-dev"
+                }
+            },
+            "autoload": {
+                "psr-0": {
+                    "Faker": "src/",
+                    "Faker\\PHPUnit": "test/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "François Zaninotto"
+                }
+            ],
+            "description": "Faker is a PHP library that generates fake data for you.",
+            "keywords": [
+                "data",
+                "faker",
+                "fixtures"
+            ],
+            "time": "2014-02-28 08:26:43"
+        },
+        {
             "name": "gedmo/doctrine-extensions",
             "version": "dev-master",
             "source": {
@@ -866,6 +1028,56 @@
                 "uploadable"
             ],
             "time": "2014-02-24 20:17:49"
+        },
+        {
+            "name": "hautelook/alice-bundle",
+            "version": "dev-master",
+            "target-dir": "Hautelook/AliceBundle",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/hautelook/AliceBundle.git",
+                "reference": "8fe8c1f14fd8a2522ad487d85dc36e0b96ee2195"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/hautelook/AliceBundle/zipball/8fe8c1f14fd8a2522ad487d85dc36e0b96ee2195",
+                "reference": "8fe8c1f14fd8a2522ad487d85dc36e0b96ee2195",
+                "shasum": ""
+            },
+            "require": {
+                "doctrine/data-fixtures": "~1.0",
+                "doctrine/doctrine-fixtures-bundle": "~2.2",
+                "nelmio/alice": "~1.5",
+                "php": ">=5.3.0"
+            },
+            "require-dev": {
+                "symfony/framework-bundle": "~2.1",
+                "symfony/yaml": "~2.1"
+            },
+            "type": "symfony-bundle",
+            "autoload": {
+                "psr-0": {
+                    "Hautelook\\AliceBundle": ""
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Baldur Rensch",
+                    "email": "brensch@gmail.com"
+                }
+            ],
+            "description": "Symfony2 Bundle that helps loading fixture data written with the Alice library",
+            "keywords": [
+                "Fixture",
+                "Symfony2",
+                "alice",
+                "orm"
+            ],
+            "time": "2014-02-20 01:37:29"
         },
         {
             "name": "incenteev/composer-parameter-handler",
@@ -1322,6 +1534,60 @@
                 "psr-3"
             ],
             "time": "2014-02-26 12:30:17"
+        },
+        {
+            "name": "nelmio/alice",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/nelmio/alice.git",
+                "reference": "aeeb7862abb1362c9c273433e0a6ba1aaec460f3"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/nelmio/alice/zipball/aeeb7862abb1362c9c273433e0a6ba1aaec460f3",
+                "reference": "aeeb7862abb1362c9c273433e0a6ba1aaec460f3",
+                "shasum": ""
+            },
+            "require": {
+                "fzaninotto/faker": "~1.0",
+                "php": ">=5.3",
+                "symfony/yaml": "~2.0"
+            },
+            "require-dev": {
+                "doctrine/common": "~2.3",
+                "phpunit/phpunit": "3.7.*",
+                "symfony/property-access": "~2.2"
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "1.6.x-dev"
+                }
+            },
+            "autoload": {
+                "psr-0": {
+                    "Nelmio\\Alice\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Nelmio",
+                    "homepage": "http://nelm.io"
+                }
+            ],
+            "description": "Expressive fixtures generator",
+            "keywords": [
+                "Fixture",
+                "data",
+                "orm",
+                "test"
+            ],
+            "time": "2014-02-27 12:23:50"
         },
         {
             "name": "psr/log",
@@ -2470,7 +2736,8 @@
         "wiredmedia/doctrine-extensions": 20,
         "jms/di-extra-bundle": 20,
         "elao/web-profiler-extra-bundle": 20,
-        "raulfraile/ladybug-bundle": 20
+        "raulfraile/ladybug-bundle": 20,
+        "hautelook/alice-bundle": 20
     },
     "platform": {
         "php": ">=5.3.3"

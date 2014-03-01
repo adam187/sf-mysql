@@ -21,6 +21,8 @@ class AppKernel extends Kernel
             new JMS\DiExtraBundle\JMSDiExtraBundle($this),
             new JMS\AopBundle\JMSAopBundle(),
             new RaulFraile\Bundle\LadybugBundle\RaulFraileLadybugBundle(),
+            new Doctrine\Bundle\FixturesBundle\DoctrineFixturesBundle(),
+            new Hautelook\AliceBundle\HautelookAliceBundle(),
         );
 
         if (in_array($this->getEnvironment(), array('dev', 'test'))) {
