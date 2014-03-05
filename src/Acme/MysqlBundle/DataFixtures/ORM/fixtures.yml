@@ -1,0 +1,25 @@
+Acme\MysqlBundle\Entity\Category:
+    root:
+        name: Root category
+    category{6..20}:
+        parent: @root
+        createdAt: <dateTimeBetween('-200 days', 'now')>
+        updatedAt: <dateTimeBetween($createdAt, 'now')>
+        name: Category <current()>
+    subcategory{21..50}:
+        parent: @category*
+        createdAt: <dateTimeBetween('-200 days', 'now')>
+        updatedAt: <dateTimeBetween($createdAt, 'now')>
+        name: Subcategory <current()>
+
+Acme\MysqlBundle\Entity\Product:
+    product{1..1000}:
+        createdAt: <dateTimeBetween('-200 days', 'now')>
+        updatedAt: <dateTimeBetween($createdAt, 'now')>
+        deletedAt: 50%? <dateTimeBetween($createdAt, 'now')>
+        name: <company()>
+        description: <text()>
+        # category: @category*
+        category: <numberBetween(21, 50)>
+        position: <current()>
+        active: <numberBetween(0, 1)>

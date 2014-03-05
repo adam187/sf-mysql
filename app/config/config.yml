@@ -58,3 +58,8 @@ jms_di_extra:
         all_bundles: false
         bundles: [AcmeMysqlBundle]
         directories: ["%kernel.root_dir%/../src"]
+    automatic_controller_injections:
+        properties:
+            request: "@request"
+            router: "@router"
+            em: "@doctrine.orm.entity_manager"

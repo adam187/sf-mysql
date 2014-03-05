@@ -1,0 +1,25 @@
+<ul>
+{% set level = 1 %}
+{% for category in categories %}
+
+        {% if category.level < level %}
+            {% set level = level - 1 %}
+            </li></ul>
+        {% endif %}
+
+        {% if category.level > level %}
+            {% set level = level + 1 %}
+            <ul><li>
+        {% else %}
+            <li>
+        {% endif %}
+
+        {% if category.level > 1 %}
+            <a href="{{ path('category', {slug: category.slug}) }}" >{{ category.name }}</a>
+        {% else %}
+            {{ category.name }}
+        {% endif %}
+
+    </li>
+{% endfor %}
+</ul>
