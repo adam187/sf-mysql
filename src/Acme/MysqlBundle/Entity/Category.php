@@ -6,6 +6,10 @@ use Gedmo\Mapping\Annotation as Gedmo;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
+ * @ORM\Index(name="root_idx", columns={"root"}),
+ */
+
+/**
  * @Gedmo\Tree(type="nested")
  * @ORM\Table(name="category", indexes={
  * })
@@ -114,5 +118,9 @@ class Category extends BaseEntity
         return $this->name;
     }
 
+    public function isLeaf()
+    {
+        return $this->getRight() == $this->getLeft() + 1;
+    }
 }
 

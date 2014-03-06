@@ -25,7 +25,7 @@ class DefaultController extends Controller
     public function menuAction()
     {
         $repo = $this->getDoctrine()->getRepository('Entity:Category');
-        $rootCategory = $repo->findOneBy(array('parent' => null));
+        $rootCategory = $repo->findOneBy(array('parent' => null, 'root' => 1));
 
         return array(
             'categories' => $rootCategory->getChildren(),
@@ -51,13 +51,20 @@ class DefaultController extends Controller
      */
     public function categoryAction($slug)
     {
-        $category = $this->getDoctrine()->getRepository('Entity:Category')->findOneBySlug($slug);
+        $categoryRepo = $this->getDoctrine()->getRepository('Entity:Category');
+        $productRepo  = $this->getDoctrine()->getRepository('Entity:Product');
 
-        $repo = $this->getDoctrine()->getRepository('Entity:Product');
+        $category = $categoryRepo->findOneBySlug($slug);
 
-        $products = $repo->getProductsFromCategory($category, rand(0, 100));
-        if (!$products) {
-            $products = $repo->getProductsFromCategory($category);
+
+        if ($category->isLeaf()) {
+            $products = $productRepo->getProductsFromCategory($category, rand(0, 100));
+            if (!$products) {
+                $products = $productRepo->getProductsFromCategory($category);
+            }
+        } else {
+            $leafs = $categoryRepo->getAllLeavsIds($category);
+            $products = $productRepo->getProductsFromCategories($leafs);
         }
 
         return array(

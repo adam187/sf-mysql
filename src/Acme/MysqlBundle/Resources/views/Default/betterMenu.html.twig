@@ -14,11 +14,7 @@
             <li>
         {% endif %}
 
-        {% if category.level > 1 %}
-            <a href="{{ path('category', {slug: category.slug}) }}" >{{ category.name }}</a>
-        {% else %}
-            {{ category.name }}
-        {% endif %}
+        <a href="{{ path('category', {slug: category.slug}) }}" >{{ category.name }}</a>
 
     </li>
 {% endfor %}

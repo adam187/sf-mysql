@@ -6,10 +6,7 @@ use Gedmo\Mapping\Annotation as Gedmo;
 use Doctrine\ORM\Mapping as ORM;
 
 /*
- *     @ORM\Index(name="category_idx", columns={"category"}),
- *     @ORM\Index(name="category_active_position_idx", columns={"category", "active", "position"}),
- *     @ORM\Index(name="category_position_idx", columns={"category", "position"}),
- *     @ORM\Index(name="name_idx", columns={"name"}),
+ * @ORM\Index(name="category_idx", columns={"category"}),
  */
 
 /**

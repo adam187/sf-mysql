@@ -47,6 +47,24 @@ class ProductRepository extends BaseRepository
     /**
      *
      */
+    public function getProductsFromCategories($categories, $offset = 0, $limit = 20)
+    {
+        $qb = $this->createQueryBuilder('p')
+            ->select('p')
+            ->where('p.category IN (:categories)')->setParameter(':categories', $categories)
+            ->orderBy('p.position', 'ASC')
+        ;
+
+        $query = $qb->getQuery();
+        $query->setFirstResult($offset);
+        $query->setMaxResults($limit);
+
+        return $this->noCache($query)->getResult();
+    }
+
+    /**
+     *
+     */
     public function findOneBySlug($slug)
     {
         $qb = $this->createQueryBuilder('p')
