@@ -3,7 +3,7 @@
         "This file locks the dependencies of your project to a known state",
         "Read more about it at http://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file"
     ],
-    "hash": "8c4d49b71b8ad13225b56c1efec5ae59",
+    "hash": "2d65d5be77fdc10661e9d867bc621715",
     "packages": [
         {
             "name": "doctrine/annotations",
@@ -2724,6 +2724,7 @@
     ],
     "minimum-stability": "dev",
     "stability-flags": {
+        "symfony/symfony": 20,
         "doctrine/orm": 20,
         "doctrine/doctrine-bundle": 20,
         "twig/extensions": 20,
