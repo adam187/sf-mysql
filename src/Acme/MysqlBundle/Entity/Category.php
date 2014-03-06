@@ -50,6 +50,7 @@ class Category extends BaseEntity
 
     /**
      * @ORM\OneToMany(targetEntity="Category", mappedBy="parent")
+     * @ORM\OrderBy({"lft" = "ASC", "rgt" = "ASC"})
      */
     private $children;
 
