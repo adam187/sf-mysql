@@ -2,8 +2,6 @@
 
 {% block content %}
 
-    <h1>Total: {{ products.totalItemCount }} Page: {{ products.currentPageNumber }}</h1>
-
     <ul>
     {% for product in products %}
         <li>
@@ -13,9 +11,5 @@
         </li>
     {% endfor %}
     </ul>
-
-    <div class="navigation">
-        {{ knp_pagination_render(products) }}
-    </div>
 
 {% endblock %}

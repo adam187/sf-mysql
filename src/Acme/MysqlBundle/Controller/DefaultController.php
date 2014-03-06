@@ -6,6 +6,7 @@ use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Template;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\ParamConverter;
+use Symfony\Component\HttpFoundation\Request;
 use Acme\MysqlBundle\Entity\Category;
 
 class DefaultController extends Controller
@@ -49,7 +50,7 @@ class DefaultController extends Controller
      * @Route("/category/{slug}", name="category")
      * @Template()
      */
-    public function categoryAction($slug)
+    public function categoryAction(Request $request, $slug)
     {
         $categoryRepo = $this->getDoctrine()->getRepository('Entity:Category');
         $productRepo  = $this->getDoctrine()->getRepository('Entity:Product');
@@ -57,11 +58,14 @@ class DefaultController extends Controller
         $category = $categoryRepo->findOneBySlug($slug);
 
         if ($category->isLeaf()) {
-            $products = $productRepo->getProductsFromCategory($category);
+            $query = $productRepo->getProductsFromCategoryQuery($category);
         } else {
             $leafs = $categoryRepo->getAllLeavsIds($category);
-            $products = $productRepo->getProductsFromCategories($leafs);
+            $query = $productRepo->getProductsFromCategoriesQuery($leafs);
         }
+
+        $paginator  = $this->get('knp_paginator');
+        $products = $paginator->paginate($query, $request->query->get('page', 1), 10);
 
         return array(
             'products' => $products,
@@ -83,7 +87,7 @@ class DefaultController extends Controller
 
     /**
      * @Route("/load", name="load")
-     * @Template("AcmeMysqlBundle:Default:category.html.twig")
+     * @Template()
      */
     public function loadAction()
     {

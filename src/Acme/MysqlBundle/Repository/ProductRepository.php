@@ -29,7 +29,7 @@ class ProductRepository extends BaseRepository
     /**
      *
      */
-    public function getProductsFromCategory($category, $offset = 0, $limit = 20)
+    public function getProductsFromCategoryQuery($category)
     {
         $qb = $this->createQueryBuilder('p')
             ->select('p')
@@ -38,16 +38,14 @@ class ProductRepository extends BaseRepository
         ;
 
         $query = $qb->getQuery();
-        $query->setFirstResult($offset);
-        $query->setMaxResults($limit);
 
-        return $this->noCache($query)->getResult();
+        return $this->noCache($query);
     }
 
     /**
      *
      */
-    public function getProductsFromCategories($categories, $offset = 0, $limit = 20)
+    public function getProductsFromCategoriesQuery($categories)
     {
         $qb = $this->createQueryBuilder('p')
             ->select('p')
@@ -56,10 +54,8 @@ class ProductRepository extends BaseRepository
         ;
 
         $query = $qb->getQuery();
-        $query->setFirstResult($offset);
-        $query->setMaxResults($limit);
 
-        return $this->noCache($query)->getResult();
+        return $this->noCache($query);
     }
 
     /**
