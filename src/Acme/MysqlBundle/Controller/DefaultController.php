@@ -56,12 +56,8 @@ class DefaultController extends Controller
 
         $category = $categoryRepo->findOneBySlug($slug);
 
-
         if ($category->isLeaf()) {
-            $products = $productRepo->getProductsFromCategory($category, rand(0, 100));
-            if (!$products) {
-                $products = $productRepo->getProductsFromCategory($category);
-            }
+            $products = $productRepo->getProductsFromCategory($category);
         } else {
             $leafs = $categoryRepo->getAllLeavsIds($category);
             $products = $productRepo->getProductsFromCategories($leafs);
@@ -83,6 +79,17 @@ class DefaultController extends Controller
         return array(
             'product' => $product,
         );
+    }
+
+    /**
+     * @Route("/load", name="load")
+     * @Template("AcmeMysqlBundle:Default:category.html.twig")
+     */
+    public function loadAction()
+    {
+        $products = $this->getDoctrine()->getRepository('Entity:Product')->findRandomProducts(rand(0, 1000));
+
+        return array('products' => $products);
     }
 
 }

@@ -74,4 +74,14 @@ class ProductRepository extends BaseRepository
 
         return $this->noCache($qb->getQuery())->getSingleResult();
     }
+
+    public function findRandomProducts($offset = 0, $limit = 200)
+    {
+        $qb = $this->createQueryBuilder('p');
+
+        $query = $qb->getQuery();
+        $query->setFirstResult($offset);
+        $query->setMaxResults($limit);
+        return $this->noCache($query)->getResult();
+    }
 }
