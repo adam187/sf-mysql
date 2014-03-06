@@ -65,7 +65,7 @@ class DefaultController extends Controller
         }
 
         $paginator  = $this->get('knp_paginator');
-        $products = $paginator->paginate($query, $request->query->get('page', 1), 10);
+        $products = $paginator->paginate($query, $request->query->get('page', 1), 10, array('distinct' => true));
 
         return array(
             'products' => $products,
